@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Kit event",
+  "type": "object",
+  "required": ["schema_version", "event_id", "timestamp", "event", "phase", "run_id", "operation_id", "state_generation", "owner_fence", "actor"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "event_id": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "event": { "type": "string" },
+    "phase": { "enum": ["prepared", "committed"] },
+    "run_id": { "type": "string" },
+    "operation_id": { "type": "string" },
+    "state_generation": { "type": "integer", "minimum": 1 },
+    "owner_fence": { "type": "integer", "minimum": 1 },
+    "actor": { "type": "string" }
+  },
+  "additionalProperties": true
+}
